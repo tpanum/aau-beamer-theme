@@ -1,0 +1,60 @@
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\definecolor{aau@blue1}{RGB}{41,34,78}  % darkest blue
+\definecolor{aau@blue2}{RGB}{58,52,137}
+\definecolor{aau@blue3}{RGB}{89,79,191}
+\definecolor{aau@gray1}{RGB}{84,97,110} % darkest gray
+\definecolor{aau@gray2}{RGB}{106,119,131}
+\definecolor{aau@gray3}{RGB}{162,172,182}
+\definecolor{aau@gray4}{RGB}{223,223,227}
+\definecolor{aau@orange}{RGB}{255,153,00} % orange
+\definecolor{aau@darkorange}{RGB}{255,100,00} % orange
+
+\setbeamercolor{structure}{fg=aau@blue1}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=aau@blue2}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=aau@blue3}
+
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+
+\setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
+\setbeamercolor*{palette sidebar quaternary}{fg=white}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor*{title in front}{parent=palette primary}
+\setbeamercolor*{subtitle in front}{parent=palette primary}
+\setbeamercolor*{speakerinfo}{bg=aau@blue1,fg=white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{alerted text}{fg=aau@darkorange}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=aau@blue2}
+%\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=aau@darkorange}
+
+\setbeamercolor{block title example}{use=example text,fg=white,bg=aau@blue3}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+
+\setbeamerfont{author}{series=\bfseries,size=\scriptsize}
+\setbeamerfont{institute}{size=\scriptsize}
+\setbeamerfont{email}{size=\scriptsize}
+\setbeamerfont{subtitle in front}{size=\scriptsize}
+\setbeamerfont{date in front}{size=\scriptsize}
+
+\mode
+<all>

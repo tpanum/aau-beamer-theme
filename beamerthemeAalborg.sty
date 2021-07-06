@@ -1,0 +1,44 @@
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\DeclareOptionBeamer{secnames}[false]{\def\beamer@themeAAU@secnames{#1}}
+\ExecuteOptionsBeamer{secnames=false}
+\ProcessOptionsBeamer
+
+\usecolortheme{AAU}
+\useinnertheme[shadow]{rounded}
+\useinnertheme[secnames=\beamer@themeAAU@secnames]{AAU}
+\useoutertheme{infolines}
+\useoutertheme{AAU}
+\setbeamertemplate{frametitle}[AAU]
+
+\setbeamercolor*{author in head/foot}{parent=palette primary}
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette tertiary}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+
+% Kill all navigation symbols
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[aaufootline]
+
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+
+
+% Tills' opinion: should be done in an inner theme, not here.
+
+%\usesubitemizeitemtemplate{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+%\usesubsubitemizeitemtemplate{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\bigstar$}}
+
+\mode
+<all>

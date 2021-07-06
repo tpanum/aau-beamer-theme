@@ -1,0 +1,33 @@
+\documentclass[12pt, aspectratio=43]{beamer} % aspectratio = either 43 or 169
+
+\usetheme{Aalborg}
+\mode<presentation>
+
+\title{Aalborg University Beamer Theme}
+\author{Thomas Kobber Panum, René Rydhof Hansen}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Example slide}
+  \begin{itemize}
+  \item \textbf{Madrid-based} AAU Beamer theme
+  \item Dependencies: {\verb{}tikz}, {\verb{}ifthen}, {\verb{}varwidth}.
+  \item Theme graphics are \underline{embedded in style files} using {\verb{}svg2tikz}.
+  \item Supports multiple aspectratios (4:3, 16:9): {\verb{} aspectratio=43}.
+  \item Licensed under \alert{GPLv3}.
+  \end{itemize}
+  \begin{columns}
+    \begin{column}{.45\columnwidth}
+      \begin{block}{Colors}
+        Most elements have been themed to align with \underline{\href{https://www.design.aau.dk/om-aau-design/Farver/}{AAU's official color theme.}}
+      \end{block}
+    \end{column}
+    \begin{column}{.45\columnwidth}
+      \begin{alertblock}{Another block}
+        This block's sole purpose is to show that alerts have been recolored :-)
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+\end{document}

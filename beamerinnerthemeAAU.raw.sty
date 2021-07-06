@@ -1,0 +1,141 @@
+\usepackage{tikz}
+\usepackage{varwidth}
+\usepackage{ifthen}
+
+\ifthenelse{\lengthtest{\beamer@paperwidth=16.00cm}\AND\lengthtest{\beamer@paperheight=10.00cm}}{
+    \def\beamer@aspectratio{1610}
+}{}
+\ifthenelse{\lengthtest{\beamer@paperwidth=16.00cm}\AND\lengthtest{\beamer@paperheight=9.00cm}}{
+    \def\beamer@aspectratio{169}
+}{}
+\ifthenelse{\lengthtest{\beamer@paperwidth=12.80cm}\AND\lengthtest{\beamer@paperheight=9.60cm}}{
+    \def\beamer@aspectratio{43}
+}{}
+\def\theratio{\beamer@aspectratio}
+
+\newcommand\ifratio[3]{%
+    \ifthenelse{\beamer@aspectratio=#1}{#2}{#3}
+}
+
+\newif\ifbeamer@secheadings
+
+\DeclareOptionBeamer{secnames}{\csname beamer@secheadings#1\endcsname}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\defbeamertemplate*{part page}{AAU}[1][]
+{
+  \begin{centering}
+    \ifbeamer@secheadings%
+    {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
+    \vskip1em\par
+    \fi
+    \begin{beamercolorbox}[sep=16pt,center,#1]{part title}
+      \usebeamerfont{part title}\insertpart\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+
+\defbeamertemplate*{section page}{AAU}[1][]
+{
+  \begin{centering}
+    \ifbeamer@secheadings
+    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+    \vskip1em\par
+    \fi
+    \begin{beamercolorbox}[sep=12pt,center,#1]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+% Subection page: default
+
+\defbeamertemplate*{subsection page}{AAU}[1][]
+{
+  \begin{centering}
+    \ifbeamer@secheadings%
+    {\usebeamerfont{subsection name}\usebeamercolor[fg]{subsection name}\subsectionname~\insertsubsectionnumber}
+    \vskip1em\par
+    \fi
+    \begin{beamercolorbox}[sep=8pt,center,#1]{part title}
+      \usebeamerfont{subsection title}\insertsubsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+\setbeamertemplate{part page}[AAU]%[colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{section page}[AAU]
+\setbeamertemplate{subsection page}[AAU]
+
+\mode<all>
+
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{sections/subsections in toc}[ball]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{background canvas}{%
+  \ifnum \insertpagenumber=1%
+  \setlength{\unitlength}{\paperwidth}
+  \ifratio{43}{
+    \begin{picture}(1,.75)
+      \put(-0.05,0.02){
+        \insertbackgroundimg{}%
+      }
+    \end{picture}
+  }{
+    \begin{picture}(1,.60)
+      \put(-0.05,0.02){
+        \insertbackgroundimg{}%
+      }
+    \end{picture}
+  }
+  \else%
+  \fi%
+}
+
+\newlength{\graphicswidth}
+\setlength{\graphicswidth}{3.7em}
+\newlength{\graphicsmargin}
+\setlength{\graphicsmargin}{2em}
+
+\setbeamertemplate{title page}{
+  \vskip3em
+  \begingroup
+  \begin{beamercolorbox}[center,wd=\paperwidth]{title in front}%
+    \vskip2em%
+    \ifx\inserttitlegraphic\@empty%
+    \begin{minipage}{\paperwidth}%
+      \else%
+    \begin{minipage}{\dimexpr\paperwidth-\graphicswidth-2\graphicsmargin\relax}%
+    \fi%
+      \hspace{\graphicsmargin}%
+      \begin{varwidth}{\textwidth}%
+        {\usebeamerfont{title}\inserttitle\par}%
+        \vspace{1em}%
+        \ifx\insertsubtitle\@empty%
+        {\usebeamerfont{subtitle in front}\insertauthor{}\par}%
+        \else%
+        {\usebeamerfont{subtitle in front}\insertsubtitle{}\par}%
+        \fi%
+        \ifx\insertinstitute\@empty%
+        \else%
+        {\usebeamerfont{institute}\textit{\insertinstitute}}%
+        \fi%
+      \end{varwidth}%
+    \end{minipage}%
+    \hfill%
+    \ifx\inserttitlegraphic\@empty%
+    \else%
+    \begin{minipage}{\dimexpr\graphicswidth+2\graphicsmargin\relax}%
+      \hspace{\graphicsmargin}%
+      {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}%
+      \hspace{\graphicsmargin}%
+    \end{minipage}%
+    \fi%
+    \vskip2em%
+  \end{beamercolorbox}%
+  \endgroup
+}

@@ -1,0 +1,47 @@
+\defbeamertemplate*{frametitle}{AAU}[1][left]
+{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+  \vspace{-0.25cm}%
+}
+
+\defbeamertemplate*{footline}{aaufootline}
+{
+  \ifnum \insertpagenumber=1
+      \leavevmode%
+      \hbox{%
+        \begin{beamercolorbox}[sep=4pt,right,wd=\paperwidth]{speakerinfo}%
+          \centering
+          {\usebeamerfont{date}\insertdate}%
+        \end{beamercolorbox}%
+      }%
+      \vskip0pt%
+    \else
+      \leavevmode%
+      \hbox{%
+        \begin{beamercolorbox}[wd=0.9\paperwidth,ht=3ex,dp=1.5ex]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\hspace{1.5ex} \insertsection \hfill \insertauthor \hspace{1.5ex}
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.1\paperwidth,ht=3ex,dp=1.5ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber
+      \end{beamercolorbox}%
+      }%
+      \vskip0pt%
+    \fi
+}
