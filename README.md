@@ -13,6 +13,7 @@ Here is a visual example based on the [example.tex file](example.tex).
 2. Download the most recent version
 3. Extract the style files (`*.sty`) into the directory of your beamer presentation.
 4. Then simply just add `\usetheme{Aalborg}` in your beamer presentation file.
+5. Ensure that the packages `tikz`, `ifthen`, and `varwidth` are available in your TeX installation.
 
 *If this still remain confusing, take a look at the [example.tex file](example.tex).*
 
