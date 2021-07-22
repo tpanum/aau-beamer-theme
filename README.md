@@ -3,10 +3,19 @@ This theme is **not** an offical theme endorsed by Aalborg University.
 The initial design was established by [René Rydhof Hansen](http://people.cs.aau.dk/~rrh/).
 [Thomas Kobber Panum](https://github.com/tpanum) have then further modified it and provided a unique frontpage layout.
 
+## Design
+The theme is based on the famous [Madrid beamer theme](https://deic-web.uab.cat/~iblanes/beamer_gallery/individual/Madrid-default-default.html), with the following modifications:
+
+- Simplified footer to provide less clutter.
+- Colors are modified to align with the official AAU color guidelines.
+- Frontpage design have been completely revamped to provide a more modern look and feel that reflect the design language of AAU.
+- Graphics (waves and logo) are directly embedded into the style files.
+
 ## Gallery
-Here is a visual example based on the [example.tex file](example.tex).
 ![Frontpage](assets/example/slide0.jpg)
 ![Slide 1](assets/example/slide1.jpg)
+
+The shown slides are based on the [example.tex file](example.tex).
 
 ## Installation
 1. Visit the [releases page](https://github.com/tpanum/aau-beamer-template/releases).
